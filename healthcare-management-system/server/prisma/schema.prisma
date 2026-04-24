@@ -1,0 +1,64 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+  engineType = "binary"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id        Int      @id @default(autoincrement())
+  name      String
+  email     String   @unique
+  password  String
+  role      String   @default("PATIENT")
+  doctor    Doctor?
+  patientAppointments Appointment[] @relation("PatientAppointments")
+  medicalRecords      MedicalRecord[] @relation("PatientRecords")
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Doctor {
+  id             Int      @id @default(autoincrement())
+  userId         Int      @unique
+  user           User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  specialization String
+  experience     Int      // in years
+  bio            String?
+  appointments   Appointment[] @relation("DoctorAppointments")
+  createdRecords MedicalRecord[] @relation("DoctorRecords")
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+}
+
+model Appointment {
+  id        Int      @id @default(autoincrement())
+  patientId Int
+  patient   User     @relation("PatientAppointments", fields: [patientId], references: [id], onDelete: Cascade)
+  doctorId  Int
+  doctor    Doctor   @relation("DoctorAppointments", fields: [doctorId], references: [id], onDelete: Cascade)
+  date      DateTime
+  time      String
+  status    String   @default("PENDING")
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model MedicalRecord {
+  id          Int      @id @default(autoincrement())
+  patientId   Int
+  patient     User     @relation("PatientRecords", fields: [patientId], references: [id], onDelete: Cascade)
+  doctorId    Int
+  doctor      Doctor   @relation("DoctorRecords", fields: [doctorId], references: [id], onDelete: Cascade)
+  diagnosis   String
+  prescription String
+  fileUrl     String?  // Multer upload URL
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}

@@ -1,0 +1,140 @@
+[dotenv@17.3.1] injecting env (3) from .env -- tip: ??????? auth for agents: https://vestauth.com
+node : node:internal/
+modules/cjs/loader:14
+23
+At line:1 char:94
++ ... h\healthcare-ma
+nagement-system\serve
+r; node src/index.js 
+2>&1 | Out-F ...
++                    
+                     
+   ~~~~~~~~~~~~~~~~~~
+~~~~
+    + CategoryInfo   
+           : NotSpe  
+  cified: (node:in   
+ ternal/modules/c    
+js/loader:1423:S    
+tring) [], Remot    
+eException
+    + FullyQualified 
+   ErrorId : Native  
+  CommandError
+ 
+  throw err;
+  ^
+
+Error: Cannot find 
+module '.prisma/clien
+t/default'
+Require stack:
+- C:\Users\amanm\.gem
+ini\antigravity\scrat
+ch\healthcare-managem
+ent-system\server\nod
+e_modules\@prisma\cli
+ent\default.js
+- C:\Users\amanm\.gem
+ini\antigravity\scrat
+ch\healthcare-managem
+ent-system\server\src
+\prisma\client.js
+- C:\Users\amanm\.gem
+ini\antigravity\scrat
+ch\healthcare-managem
+ent-system\server\src
+\controllers\auth.con
+troller.js
+- C:\Users\amanm\.gem
+ini\antigravity\scrat
+ch\healthcare-managem
+ent-system\server\src
+\routes\auth.routes.j
+s
+- C:\Users\amanm\.gem
+ini\antigravity\scrat
+ch\healthcare-managem
+ent-system\server\src
+\index.js
+    at Module._resolv
+eFilename (node:inter
+nal/modules/cjs/loade
+r:1420:15)
+    at 
+defaultResolveImpl (n
+ode:internal/modules/
+cjs/loader:1058:19)
+    at resolveForCJSW
+ithHooks (node:intern
+al/modules/cjs/loader
+:1063:22)
+    at Module._load (
+node:internal/modules
+/cjs/loader:1226:37)
+    at TracingChannel
+.traceSync (node:diag
+nostics_channel:328:1
+4)
+    at 
+wrapModuleLoad (node:
+internal/modules/cjs/
+loader:244:24)
+    at 
+Module.require (node:
+internal/modules/cjs/
+loader:1503:12)
+    at require (node:
+internal/modules/help
+ers:152:16)
+    at 
+Object.<anonymous> (C
+:\Users\amanm\.gemini
+\antigravity\scratch\
+healthcare-management
+-system\server\node_m
+odules\@prisma\client
+\default.js:2:6)
+    at 
+Module._compile (node
+:internal/modules/cjs
+/loader:1760:14) {
+  code: 
+'MODULE_NOT_FOUND',
+  requireStack: [
+    'C:\\Users\\amanm
+\\.gemini\\antigravit
+y\\scratch\\healthcar
+e-management-system\\
+server\\node_modules\
+\@prisma\\client\\def
+ault.js',
+    'C:\\Users\\amanm
+\\.gemini\\antigravit
+y\\scratch\\healthcar
+e-management-system\\
+server\\src\\prisma\\
+client.js',
+    'C:\\Users\\amanm
+\\.gemini\\antigravit
+y\\scratch\\healthcar
+e-management-system\\
+server\\src\\controll
+ers\\auth.controller.
+js',
+    'C:\\Users\\amanm
+\\.gemini\\antigravit
+y\\scratch\\healthcar
+e-management-system\\
+server\\src\\routes\\
+auth.routes.js',
+    'C:\\Users\\amanm
+\\.gemini\\antigravit
+y\\scratch\\healthcar
+e-management-system\\
+server\\src\\index.js
+'
+  ]
+}
+
+Node.js v24.9.0
